@@ -1,0 +1,9 @@
+header {
+    background: rgb(2,0,36);
+    background: linear-gradient(87deg, rgba(2,0,36,1) 0%, rgba(9,49,121,1) 37%, rgba(0,108,255,1) 100%);
+}
+
+header h1 {
+    text-align: center;
+    color: white;
+}
