@@ -2,8 +2,67 @@ header {
     background: rgb(2,0,36);
     background: linear-gradient(87deg, rgba(2,0,36,1) 0%, rgba(9,49,121,1) 37%, rgba(0,108,255,1) 100%);
 }
-
+li {
+    list-style: none;
+}
 header h1 {
     text-align: center;
     color: white;
+}
+main {
+    display: flex;
+}
+h4 {
+    margin-block: 0;
+}
+#search-city {
+    border: 1px solid grey;
+    height:2rem;
+    border-radius: 5px;
+    margin:5px 10px 10px 0;
+}
+#city-submit {
+    width: 10rem
+}
+#old-search {
+    padding: 3px 0;
+    font-weight: bold;
+    font-size: larger;
+    text-align: center;
+    border: 3px solid black;
+    list-style: none;
+    background-color: brown;
+    color: white;
+    border-radius: 12px;
+}
+#card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#card {
+    background-color: rgb(0, 77, 47);
+    padding: 10px 2px;
+    margin: auto 5px;
+}
+#card ul {
+    font-weight: bold;
+}
+#card li {
+    padding:3px;
+}
+
+#real-time-weather {
+    border: 1px solid black;
+    padding: 0 0 0 15px;
+    margin: 5px;
+}
+#real-time-weather h3 {
+    font-size: 25px;
+    font-weight: bolder;
+}
+#real-time-weather li {
+    font-size: medium;
+    font-weight: 100;
+    padding: 5px 0;
 }
