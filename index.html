@@ -13,6 +13,7 @@
     </header>
     <main>
         <div class="search-side">
+            <div id="form">
             <h3>Search for a City:</h3>
             <form>
                 <input name="search-city" id="search-city" type="text" autofocus="true">
@@ -21,14 +22,15 @@
                 <br>
                 <button type="button" id="reset" class="btn">Reset search History</button>
             </form>
+            </div>
             <div class="search history" id="history">
                 <ul class="previous-search" id="previous-search"></ul>
             </div>
         </div>    
-        <div class="weather-display">
+        <div class="weather-display" id="weather-display">
             <div class="real-time-weather" id="real-time-weather"></div>
-            <div class="five-day">
-                <h3>5-Day Forecast: </h3>
+            <h3 id="forecast">5-Day Forecast: </h3>
+            <div class="five-day" id="five-day">
                 <div class="card-container" id="card-container">
                 </div>
             </div>
@@ -36,6 +38,7 @@
 
     </main>
     <script type = "text/JavaScript" src = " https://MomentJS.com/downloads/moment.js"></script>
+    <script type = "text/css" src = "https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons-wind.css"></script>
     <script src="./assets/js/homepage.js"></script>
 </body>
 </html>
