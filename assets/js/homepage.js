@@ -64,12 +64,12 @@ var getWeather = function (lat, lon) {
                     cardConEl.textContent = "";
                     // Current Time weather 
                     var currentCity = document.createElement("h3")
+                    // checks to see if user selected a previous search 
                     if (previousSearch[i] == undefined) {
                         currentCity.textContent = clickedOldSearch + " (" + currentDay + ")";
                     } else{
                         currentCity.textContent = previousSearch[i] + " (" + currentDay + ")";
                     }
-                    
                     currentWeather.appendChild(currentCity);
                     currentTemp = document.createElement("li")
                     currentTemp.textContent = "Temp: " + data.current.temp + "°F";
@@ -98,7 +98,6 @@ var getWeather = function (lat, lon) {
                         currentUvColor.setAttribute("style", "background: green;");
                     } else if (2 < data.current.uvi < 5) {
                         currentUvColor.setAttribute("style", "background: yellow; color: black;");
-                        // currentUvColor.setAttribute("style", "color: black")
                     } else if (6 < data.current.uvi < 7) {
                         currentUvColor.setAttribute("style", "background: orange;");
                     } else if (8 < data.current.uvi < 10) {
