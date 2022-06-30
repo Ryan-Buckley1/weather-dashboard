@@ -14,12 +14,12 @@ weatherDisplay.textContent = "";
 forecastEl.textContent = "";
 
 // saves function 
-var newSave = function() {
-    localStorage.setItem('previousSearches',JSON.stringify(previousSearch))
+var newSave = function () {
+    localStorage.setItem('previousSearches', JSON.stringify(previousSearch))
 }
 // loading function
-var  oldSaves = function() {   
-    if (localStorage.getItem('previousSearches') == null){
+var oldSaves = function () {
+    if (localStorage.getItem('previousSearches') == null) {
         localStorage.setItem('previousSearches', JSON.stringify(previousSearch))
     }
 
@@ -50,12 +50,12 @@ var citySubmitHandler = function (event) {
         previousSearch.push(sumbittedCity);
         searchedCity.value = "";
     }
-} 
+}
 // uses weather api using the lat and lon from the geolocation api, then creates the current weather display,as well as the 5 day forecast  
 var getWeather = function (lat, lon) {
     var weatherApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey;
     var currentWeather = document.getElementById("real-time-weather")
-    
+
     fetch(weatherApiUrl)
         .then(function (response) {
             response.json()
@@ -67,7 +67,7 @@ var getWeather = function (lat, lon) {
                     // checks to see if user selected a previous search 
                     if (previousSearch[i] == undefined) {
                         currentCity.textContent = clickedOldSearch + " (" + currentDay + ")";
-                    } else{
+                    } else {
                         currentCity.textContent = previousSearch[i] + " (" + currentDay + ")";
                     }
                     currentWeather.appendChild(currentCity);
@@ -75,7 +75,7 @@ var getWeather = function (lat, lon) {
                     currentTemp.textContent = "Temp: " + data.current.temp + "°F";
                     currentCity.prepend(currentTemp);
                     var currentIcon = document.createElement("li");
-                    currentIcon.innerHTML = '<img src="http://openweathermap.org/img/wn/'+ data.current.weather[0].icon + '@2x.png" width="50px" height="50px" alt="">';
+                    currentIcon.innerHTML = '<img src="http://openweathermap.org/img/wn/' + data.current.weather[0].icon + '@2x.png" width="50px" height="50px" alt="">';
                     currentCity.append(currentIcon)
                     var currentWind = document.createElement("li");
                     currentWind.textContent = "Wind: " + data.current.wind_speed + " MPH";
@@ -89,9 +89,9 @@ var getWeather = function (lat, lon) {
                     uviEl.setAttribute("id", "uv-el");
                     currentCity.append(uviEl);
                     var currentUvi = document.createElement("p");
-                    currentUvi.textContent = "UV Index: " 
+                    currentUvi.textContent = "UV Index: "
                     uviEl.appendChild(currentUvi);
-                    var currentUvColor = document.createElement("p") 
+                    var currentUvColor = document.createElement("p")
                     currentUvColor.textContent = data.current.uvi
                     currentUvColor.setAttribute("id", "uv-col")
                     if (data.current.uvi < 2) {
@@ -102,18 +102,18 @@ var getWeather = function (lat, lon) {
                         currentUvColor.setAttribute("style", "background: orange;");
                     } else if (8 < data.current.uvi < 10) {
                         currentUvColor.setAttribute("style", "background: red;");
-                    } else if (10 < data,current.uvi) {
+                    } else if (10 < data, current.uvi) {
                         currentUvColor.setAttribute("style", "background: rgb(0, 153, 255);");
                     }
                     uviEl.appendChild(currentUvColor);
-                    
-                    
-                        forecastEl.textContent = "5-Day Forecast:"
+
+
+                    forecastEl.textContent = "5-Day Forecast:"
 
 
 
                     //  5 day forecast 
-                    for (i = 1; i < data.daily.length-2; i++) {
+                    for (i = 1; i < data.daily.length - 2; i++) {
                         var cardEl = document.createElement("ul")
                         cardEl.setAttribute("id", "card")
                         cardConEl.appendChild(cardEl)
@@ -122,7 +122,7 @@ var getWeather = function (lat, lon) {
                         cardEl.appendChild(cardDate);
                         currentCity.appendChild(currentTemp);
                         var cardIcon = document.createElement("li");
-                        cardIcon.innerHTML = '<img src="http://openweathermap.org/img/wn/'+ data.daily[i].weather[0].icon + '@2x.png" width="50px" height="50px" alt="">';
+                        cardIcon.innerHTML = '<img src="http://openweathermap.org/img/wn/' + data.daily[i].weather[0].icon + '@2x.png" width="50px" height="50px" alt="">';
                         cardEl.appendChild(cardIcon)
                         var cardTemp = document.createElement("li")
                         cardTemp.textContent = "Temp: " + data.daily[i].temp.day + "°F";
@@ -134,7 +134,7 @@ var getWeather = function (lat, lon) {
                         cardHum.textContent = "Humidity: " + data.daily[i].humidity + " %";
                         cardEl.appendChild(cardHum);
                     }
-                    
+
                 })
         })
 
@@ -147,7 +147,7 @@ var savedPreviousSearch = function () {
     previousSearchEl.innerHTML = "";
 
 
-    
+
     for (i = 0; i < previousSearch.length; i++) {
 
         var previousCity = document.createElement("p")
@@ -161,7 +161,7 @@ var savedPreviousSearch = function () {
     newSave();
 }
 // creates reset button to clear the preivous searches 
-var searchReset = function(event) {
+var searchReset = function (event) {
     previousSearch = []
     localStorage.clear();
     previousSearchEl.innerHTML = "";
