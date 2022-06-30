@@ -28,7 +28,7 @@ var oldSaves = function () {
 }
 // uses geolocation api to get the lon and lat of user submitted city 
 var getLocation = function (city) {
-    var locationApiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
+    var locationApiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey;
     fetch(locationApiUrl)
         .then(function (response) {
             response.json()
